@@ -1,8 +1,6 @@
-var cityName = "Bountiful"
-var APIKey = "5a688da3863b70429be33748b7a10332";
-var queryURL = "api.openweathermap.org/data/2.5/forecast?q=bountiful&appid=5a688da3863b70429be33748b7a10332"
-
 console.log(moment().format("dddd, MMMM Do YYYY"));
+
+$(".cityName").text(cityName);
 
 // day 1 stats
 $(".today").text(moment().format("dddd, MMMM Do"));
@@ -40,6 +38,10 @@ $(".wind4")
 $(".uv4")
 
 // Create an AJAX call to retrieve data -- Log the data in console
+var cityName = "Bountiful"
+var APIKey = "5a688da3863b70429be33748b7a10332";
+var queryURL = "api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIKey; 
+
 $.ajax({
   url: queryURL,
   method: "GET"
