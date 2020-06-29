@@ -5,6 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -17,8 +18,8 @@
         <hr class="my-4">
         <p>Find detailed weather conditions from around the world!</p>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Location" aria-label="Search">
-            <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+            <input class="form-control mr-sm-2" id="locationInput"type="search" placeholder="Location" aria-label="Search">
+            <button class="btn btn-primary my-2 my-sm-0" id="locationInputButton" type="submit">Search</button>
           </form>
         <div>
             <h3 class="cityName"></h3>
@@ -27,11 +28,11 @@
     <div class="card-deck">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title today">Today</h5>
-            <p class="card-text temp">Temperature: </p>
-            <p class="card-text humidity">Humidity: </p>
-            <p class="card-text wind">Wind Speed: </p>
-            <p class="card-text uv">UV Index: </p>
+            <h5 class="card-title day0">Today</h5>
+            <p class="card-text temp0">Temperature: </p>
+            <p class="card-text humidity0">Humidity: </p>
+            <p class="card-text wind0">Wind Speed: </p>
+            <p class="card-text description0">Conditions: </p>
           </div>
           <div class="card-footer">
             <small class="text-muted">Last updated 3 mins ago</small>
@@ -43,7 +44,7 @@
             <p class="card-text temp1">Temperature: </p>
             <p class="card-text humidity1">Humidity: </p>
             <p class="card-text wind1">Wind Speed: </p>
-            <p class="card-text uv1">UV Index: </p>
+            <p class="card-text description1">Conditions: </p>
           </div>
           <div class="card-footer">
             <small class="text-muted">Last updated 3 mins ago</small>
@@ -53,9 +54,9 @@
           <div class="card-body">
             <h5 class="card-title day2">Date</h5>
             <p class="card-text temp2">Temperature: </p>
-            <p class="card-text humidity2">Humidity: </p>
+                <p class="card-text humidity2">Humidity: </p>
             <p class="card-text wind2">Wind Speed: </p>
-            <p class="card-text uv2">UV Index: </p>
+            <p class="card-text description2">Conditions: </p>
           </div>
           <div class="card-footer">
             <small class="text-muted">Last updated 3 mins ago</small>
@@ -65,9 +66,9 @@
             <div class="card-body">
               <h5 class="card-title day3">Date</h5>
               <p class="card-text temp3">Temperature: </p>
-              <p class="card-text humidity3">Humidity: </p>
+                <p class="card-text humidity3"></p>
               <p class="card-text wind3">Wind Speed: </p>
-              <p class="card-text uv3">UV Index: </p>
+              <p class="card-text description3">Conditions: </p>
             </div>
             <div class="card-footer">
               <small class="text-muted">Last updated 3 mins ago</small>
@@ -77,9 +78,9 @@
             <div class="card-body">
               <h5 class="card-title day4">Date</h5>
               <p class="card-text temp4">Temperature: </p>
-              <p class="card-text humidity4">Humidity: </p>
+                <p class="card-text humidity4">Humidity: </p>
               <p class="card-text wind4">Wind Speed: </p>
-              <p class="card-text uv4">UV Index: </p>
+              <p class="card-text description4">Conditions: </p>
             </div>
             <div class="card-footer">
               <small class="text-muted">Last updated 3 mins ago</small>
