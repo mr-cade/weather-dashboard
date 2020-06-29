@@ -17,13 +17,19 @@
         <p class="lead"></p>
         <hr class="my-4">
         <p>Find detailed weather conditions from around the world!</p>
+        <div class="float-right searchBtns">
+          <p>History</p> 
+          <!-- HISTORY BUTTONS GO HERE -->
+        </div>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" id="locationInput"type="search" placeholder="Location" aria-label="Search">
-            <button class="btn btn-primary my-2 my-sm-0" id="locationInputButton" type="submit">Search</button>
-          </form>
+          <input class="form-control mr-sm-2" id="locationInput"type="search" placeholder="Location" aria-label="Search">
+          <button class="btn btn-primary my-2 my-sm-0" id="locationInputButton" type="submit">Search</button>
+        </form>
+          <br>
         <div>
             <h3 class="cityName"></h3>
         </div>
+        
     </div>
     <div class="card-deck">
         <div class="card">
@@ -34,9 +40,6 @@
             <p class="card-text wind0">Wind Speed: </p>
             <p class="card-text description0">Conditions: </p>
           </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
         </div>
         <div class="card">
           <div class="card-body">
@@ -46,44 +49,32 @@
             <p class="card-text wind1">Wind Speed: </p>
             <p class="card-text description1">Conditions: </p>
           </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
         </div>
         <div class="card">
           <div class="card-body">
             <h5 class="card-title day2">Date</h5>
             <p class="card-text temp2">Temperature: </p>
-                <p class="card-text humidity2">Humidity: </p>
+            <p class="card-text humidity2">Humidity: </p>
             <p class="card-text wind2">Wind Speed: </p>
             <p class="card-text description2">Conditions: </p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
           </div>
         </div>
         <div class="card">
             <div class="card-body">
               <h5 class="card-title day3">Date</h5>
               <p class="card-text temp3">Temperature: </p>
-                <p class="card-text humidity3"></p>
+              <p class="card-text humidity3">Humidity: </p>
               <p class="card-text wind3">Wind Speed: </p>
               <p class="card-text description3">Conditions: </p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
             </div>
           </div>
           <div class="card">
             <div class="card-body">
               <h5 class="card-title day4">Date</h5>
               <p class="card-text temp4">Temperature: </p>
-                <p class="card-text humidity4">Humidity: </p>
+              <p class="card-text humidity4">Humidity: </p>
               <p class="card-text wind4">Wind Speed: </p>
               <p class="card-text description4">Conditions: </p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
             </div>
           </div>
       </div>
