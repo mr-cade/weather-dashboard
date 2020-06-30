@@ -53,7 +53,6 @@ function populate(event) {
   };
   saveSearch();
 
-  // Need to get history buttons to go repull that location***********
 
   // clears search field and restores placeholder value
   $(".reset").val("")
@@ -73,9 +72,16 @@ function refreshPopulate () {
       var createButton = document.createElement("button");
       console.log(localArr[j].city)
       createButton.textContent = localArr[j].city
+      createButton.classList.add("historyBtn")
       $(".searchBtns").append(createButton)
-      
+      $(".searchBtns").append($("<br>"))
     }
   }
 }
 refreshPopulate()
+
+  // Need to get history buttons to go repull last location***********
+
+function lastSearch () {
+  
+}
