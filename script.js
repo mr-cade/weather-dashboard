@@ -1,13 +1,17 @@
 console.log(moment().format("dddd, MMMM Do YYYY"));
 
-$("#locationInputButton").on("click", function(event) {
+$("#locationInputButton").on("click", populate);
+
+function populate(event) {
   event.preventDefault()
   
-  // set query URL to pull given city from API
+  // set query URL to pull searched city from API
   var APIKey = "5a688da3863b70429be33748b7a10332";
   var cityName = $("#locationInput").val()
   var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIKey; 
   console.log("cityName: " + cityName); 
+
+  // sets header as the searched city
   $(".cityName").text(cityName);
 
   // Create an AJAX call to retrieve data
@@ -29,7 +33,7 @@ $("#locationInputButton").on("click", function(event) {
     $(".day" + i).text(date);
     $(".temp" + i).text("Temperature: " + tempF);
     $(".humidity" + i).text("Humidity: " + humidity);
-    $(".wind" + i).text("Wind Speed: " + wind);
+    $(".wind" + i).text("Wind Speed: " + wind + " kmh")
     $(".description" + i).text("Conditions: " + description);
   }
 });
@@ -40,4 +44,11 @@ $("#locationInputButton").on("click", function(event) {
     $(".searchBtns").append("<br>")
   };
   saveSearch();
-});
+
+  // clears search field and restores placeholder value
+  $(".reset").val("")
+  $(".reset").attr({
+    "Placeholder": "Location"
+})
+}
+
