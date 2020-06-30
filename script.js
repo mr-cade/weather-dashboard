@@ -1,4 +1,5 @@
 console.log(moment().format("dddd, MMMM Do YYYY"));
+var localArr =[]
 
 $("#locationInputButton").on("click", populate);
 
@@ -7,7 +8,7 @@ function populate(event) {
   
   // set query URL to pull searched city from API
   var APIKey = "5a688da3863b70429be33748b7a10332";
-  var cityName = $("#locationInput").val()
+  var cityName = $("#locationInput").val() // would like to make this show up capitalized even if input is lowercase
   var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIKey; 
   console.log("cityName: " + cityName); 
 
@@ -31,8 +32,8 @@ function populate(event) {
     var wind = response.list[i].wind.speed;
     var description = response.list[i].weather[0].description;
     $(".day" + i).text(date);
-    $(".temp" + i).text("Temperature: " + tempF);
-    $(".humidity" + i).text("Humidity: " + humidity);
+    $(".temp" + i).text("Temperature: " + tempF + "F");
+    $(".humidity" + i).text("Humidity: " + humidity + "%");
     $(".wind" + i).text("Wind Speed: " + wind + " kmh")
     $(".description" + i).text("Conditions: " + description);
   }
@@ -41,14 +42,40 @@ function populate(event) {
   function saveSearch () {
     var historyButton = $("<button>").text($("#locationInput").val())
     $(".searchBtns").append(historyButton);
-    $(".searchBtns").append("<br>")
+    $(".searchBtns").append("<br>");
+
+    // creates object and saves to local storage
+    var citySearch = {
+      city : cityName
+    }
+    localArr.push(citySearch)
+    localStorage.setItem("citySearch", JSON.stringify(localArr))
   };
   saveSearch();
+
+  // Need to get history buttons to go repull that location***********
 
   // clears search field and restores placeholder value
   $(".reset").val("")
   $(".reset").attr({
     "Placeholder": "Location"
-})
+  })
 }
-
+// on refresh need last searched city to pull up
+function refreshPopulate () {
+  var fromLocalStorage = JSON.parse(localStorage.getItem("citySearch"))
+  if (fromLocalStorage != null) {
+    for (var i = 0; i < fromLocalStorage.length; i++) {
+      localArr.push(fromLocalStorage[i])
+    }
+    console.log(localArr);
+    for (var j = 0; j < localArr.length; j++) {
+      var createButton = document.createElement("button");
+      console.log(localArr[j].city)
+      createButton.textContent = localArr[j].city
+      $(".searchBtns").append(createButton)
+      
+    }
+  }
+}
+refreshPopulate()
