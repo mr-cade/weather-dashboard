@@ -1,14 +1,25 @@
 console.log(moment().format("dddd, MMMM Do YYYY"));
 var localArr =[]
 
-$("#locationInputButton").on("click", populate);
-
-function populate(event) {
+$("#locationInputButton").on("click", function(event){
   event.preventDefault()
+  var city = $("#locationInput").val() 
+  populate(city)
+});
+$(".searchBtns").on("click", function(event){
+  event.preventDefault()
+
+ var cityFrombuttons = event.target.textContent
+  
+ 
+  populate(cityFrombuttons)
+});
+function populate(cityName) {
+
   
   // set query URL to pull searched city from API
   var APIKey = "5a688da3863b70429be33748b7a10332";
-  var cityName = $("#locationInput").val() // would like to make this show up capitalized even if input is lowercase
+  //var// would like to make this show up capitalized even if input is lowercase
   var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIKey; 
   console.log("cityName: " + cityName); 
 
@@ -40,6 +51,7 @@ function populate(event) {
 });
   // saves historical search and saves as button
   function saveSearch () {
+    if($("#locationInput").val() !== ""){
     var historyButton = $("<button>").text($("#locationInput").val())
     $(".searchBtns").append(historyButton);
     $(".searchBtns").append("<br>");
@@ -51,8 +63,8 @@ function populate(event) {
     localArr.push(citySearch)
     localStorage.setItem("citySearch", JSON.stringify(localArr))
   };
+}
   saveSearch();
-
 
   // clears search field and restores placeholder value
   $(".reset").val("")
@@ -60,10 +72,12 @@ function populate(event) {
     "Placeholder": "Location"
   })
 }
+
 // on refresh need last searched city to pull up
 function refreshPopulate () {
   var fromLocalStorage = JSON.parse(localStorage.getItem("citySearch"))
   if (fromLocalStorage != null) {
+    populate(fromLocalStorage[fromLocalStorage.length -1].city)
     for (var i = 0; i < fromLocalStorage.length; i++) {
       localArr.push(fromLocalStorage[i])
     }
@@ -80,7 +94,7 @@ function refreshPopulate () {
 }
 refreshPopulate()
 
-  // Need to get history buttons to go repull last location***********
+  // Need to get history buttons to go repull location***********
 
 function lastSearch () {
   
